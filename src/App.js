@@ -13,24 +13,40 @@ class App extends React.Component {
     pageTitle: 'Car list'
   }
 
- changeTitleHandler = () => {
+ changeTitleHandler = (newTitle) => {
     this.setState({
-      pageTitle: 'Changed state'
+      pageTitle: newTitle
     })
   }
 
   render() {
-    console.log('Render')
     const carState = this.state
     return (
       <div className='App'>
         <h1>{carState.pageTitle}</h1>
   
-        <button onClick={this.changeTitleHandler}>Change title</button>
+        <button 
+          onClick={this.changeTitleHandler.bind(this, 'DDDDDDDD')}
+          >Change title</button>
   
-        <Car name={carState.cars[0].name} year={carState.cars[0].year} color={carState.cars[0].color} />
-        <Car name={carState.cars[1].name} year={carState.cars[1].year} color={carState.cars[1].color} />
-        <Car name={carState.cars[2].name} year={carState.cars[2].year} color={carState.cars[2].color} />
+        <Car 
+          name={carState.cars[0].name} 
+          year={carState.cars[0].year} 
+          color={carState.cars[0].color}
+          onChangeTitle={this.changeTitleHandler.bind(this, carState.cars[0].name)} //более правильный и быстрее
+        />
+        <Car 
+          name={carState.cars[1].name} 
+          year={carState.cars[1].year} 
+          color={carState.cars[1].color} 
+          onChangeTitle={() => this.changeTitleHandler(carState.cars[1].name)}
+        />
+        <Car 
+          name={carState.cars[2].name} 
+          year={carState.cars[2].year} 
+          color={carState.cars[2].color} 
+          onChangeTitle={() => this.changeTitleHandler(carState.cars[2].name)}
+        />
       </div>
     )  
   }

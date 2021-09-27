@@ -4,5 +4,6 @@ export default props => (
         <h2>Car name: {props.name}</h2>
         <p>Color: {props.color}</p>
         <p>Year: {props.year}</p>
+        <button onClick={props.onChangeTitle}>Click</button>
     </div>
 )
