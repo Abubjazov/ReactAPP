@@ -19,21 +19,50 @@ class App extends React.Component {
     })
   }
 
+  inputHandler = (event) => {
+    this.setState({
+      pageTitle: event.target.value
+    })
+  }
+
+  summerTime = () => {
+    this.setState({
+      pageTitle: new Date().toLocaleString()
+    })
+  }
+
   render() {
-    const carState = this.state
     return (
+
       <div className='App'>
-        <h1>{carState.pageTitle}</h1>
+        <h1>{this.state.pageTitle}</h1>
   
         <button 
-          onClick={this.changeTitleHandler.bind(this, 'DDDDDDDD')}
+          onClick={this.summerTime}
           >Change title</button>
+
+        <input type="text" onChange={this.inputHandler} />
+
+        { 
+        this.state.cars.map((car, index) => {
+          console.log(index)
+          return (
+            <Car 
+              key={index}
+              name={car.name} 
+              year={car.year} 
+              color={car.color}
+              onChangeTitle={() => this.changeTitleHandler(car.name)}
+            />
+          )
+        })
+        }
   
-        <Car 
+        {/* <Car 
           name={carState.cars[0].name} 
           year={carState.cars[0].year} 
           color={carState.cars[0].color}
-          onChangeTitle={this.changeTitleHandler.bind(this, carState.cars[0].name)} //более правильный и быстрее
+          onChangeTitle={this.changeTitleHandler.bind(this, carState.cars[0].name)} //более правильный и быстрый
         />
         <Car 
           name={carState.cars[1].name} 
@@ -46,7 +75,7 @@ class App extends React.Component {
           year={carState.cars[2].year} 
           color={carState.cars[2].color} 
           onChangeTitle={() => this.changeTitleHandler(carState.cars[2].name)}
-        />
+        /> */}
       </div>
     )  
   }
