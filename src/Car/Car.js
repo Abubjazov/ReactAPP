@@ -1,6 +1,11 @@
 function Car() {
     return (
-        <h2>This is Car</h2>
+        <div>
+            <h2>This is Car</h2>
+            <p>1 + 1</p>
+            <p>Number: {1 + 1}</p>
+            <p>PI: {Math.PI}</p>
+        </div>
     )
 }
 
