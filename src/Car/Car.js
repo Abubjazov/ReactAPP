@@ -1,13 +1,13 @@
-function Car() {
-    return (
-        <div>
-            <h2>This is Car</h2>
-            <p>1 + 1</p>
-            <p>Number: {1 + 1}</p>
-            <p>PI: {Math.PI}</p>
-        </div>
-    )
-}
+/* eslint-disable import/no-anonymous-default-export */
+// function Car(props) {
+//     return (
+//         <div>
+//             <h2>Car name: {props.name}</h2>
+//             <p>Color: {props.color}</p>
+//             <p>Year: {props.year}</p>
+//         </div>
+//     )
+// }
 
 // const car = () => {
 //     return (
@@ -30,4 +30,10 @@ function Car() {
 //         <h2>This is Car4</h2>
 //     </div>
 // )
-export default Car
+export default props => (
+    <div>
+        <h2>Car name: {props.name}</h2>
+        <p>Color: {props.color}</p>
+        <p>Year: {props.year}</p>
+    </div>
+)
