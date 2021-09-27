@@ -20,17 +20,22 @@ class App extends React.Component {
     })
   }
 
-  // inputHandler = (event) => {
-  //   this.setState({
-  //     pageTitle: event.target.value
-  //   })
-  // }
+  onChangeName(name, index) {
+    const car = this.state.cars[index]
+    car.name = name
+    // const cars = this.state.cars.concat() //clone array
+    const cars = [...this.state.cars]        //clone array
 
-  // summerTime = () => {
-  //   this.setState({
-  //     pageTitle: new Date().toLocaleString()
-  //   })
-  // }
+    cars[index] = car
+    this.setState({cars})
+  }
+
+  deleteHandler(index) {
+    const cars = this.state.cars.concat()
+
+    cars.splice(index, 1)
+    this.setState({cars})
+  }
 
   render() {
     let cars = null
@@ -43,7 +48,8 @@ class App extends React.Component {
             name={car.name} 
             year={car.year} 
             color={car.color}
-            onChangeTitle={() => this.changeTitleHandler(car.name)}
+            onDelete={this.deleteHandler.bind(this, index)}
+            onChangeName={event => this.onChangeName(event.target.value, index)}
           />
         )
       })
