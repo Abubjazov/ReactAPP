@@ -2,9 +2,11 @@
 export default props => (
     <div style={{
         border: '1px solid #ccc',
-        marginBottom: '10px',
+        marginBottom: 10,
         display: 'block',
-        padding: '10px'
+        padding: 10,
+        boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .2)',
+        borderRadius: 5
     }}>
         <h2>Car name: {props.name}</h2>
         <p>Color: {props.color}</p>

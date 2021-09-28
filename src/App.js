@@ -64,8 +64,13 @@ class App extends React.Component {
           >Toggle Cars</button>
 
         {/* <input type="text" onChange={this.inputHandler} /> */}
-
-        { cars }
+        <div style={{
+          width: 400,
+          margin: 'auto',
+          paddingTop: 20
+        }}>
+          { cars }
+        </div>
       </div>
     )  
   }
