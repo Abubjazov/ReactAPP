@@ -1,17 +1,22 @@
+/* eslint-disable no-useless-constructor */
 import React from 'react';
 import './App.scss';
 import Car from './Car/Car';
 
 class App extends React.Component {
 
-  state = {
-    cars: [
-      {name: 'Kia', year: 2020, color: 'red'},
-      {name: 'Audi', year: 2015, color: 'black'},
-      {name: 'Mazda', year: 2019, color: 'green'}
-    ],
-    pageTitle: 'Car list',
-    showCars: false 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cars: [
+        {name: 'Kia', year: 2020, color: 'red'},
+        {name: 'Audi', year: 2015, color: 'black'},
+        {name: 'Mazda', year: 2019, color: 'green'}
+      ],
+      pageTitle: 'Car list',
+      showCars: false 
+    }
   }
 
   toggleCarsHandler = () => {
@@ -57,7 +62,8 @@ class App extends React.Component {
     return (
 
       <div className='App'>
-        <h1>{this.state.pageTitle}</h1>
+        {/* <h1>{this.state.pageTitle}</h1> */}
+        <h1>{this.props.title}</h1>
   
         <button 
           onClick={this.toggleCarsHandler}
