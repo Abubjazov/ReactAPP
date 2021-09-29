@@ -1,17 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
+import React from 'react'
 import Radium from 'radium'
-import './Car.scss' 
+import './Car.scss'
 
-const Car = props => {
-    const inputClasses = ['input']
+class Car extends React.Component {
+    render() {
+        const inputClasses = ['input']
 
-    if (props.name) {
+    if (this.props.name) {
         inputClasses.push('green')
     } else {
         inputClasses.push('red')
     }
 
-    if (props.name.length > 4) {
+    if (this.props.name.length > 4) {
         inputClasses.push('bold')
     }
 
@@ -28,18 +30,19 @@ const Car = props => {
 
     return (
     <div className='Car' style={style}>
-        <h2>Car name: {props.name}</h2>
-        <p>Color: {props.color}</p>
-        <p>Year: {props.year}</p>
+        <h2>Car name: {this.props.name}</h2>
+        <p>Color: {this.props.color}</p>
+        <p>Year: {this.props.year}</p>
         <input 
         type="text" 
-        onChange={props.onChangeName} 
-        value={props.name}
+        onChange={this.props.onChangeName} 
+        value={this.props.name}
         className={inputClasses.join(' ')}
         />
-        <button onClick={props.onDelete}>Delete</button>
+        <button onClick={this.props.onDelete}>Delete</button>
     </div>
 )
     }
+}
 
 export default Radium(Car)
