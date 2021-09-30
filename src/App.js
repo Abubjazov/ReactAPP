@@ -1,7 +1,8 @@
 /* eslint-disable no-useless-constructor */
-import React from 'react';
-import './App.scss';
-import Car from './Car/Car';
+import React from 'react'
+import './App.scss'
+import Car from './Car/Car'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 class App extends React.Component {
 
@@ -12,7 +13,7 @@ class App extends React.Component {
       cars: [
         {name: 'Kia', year: 2020, color: 'red'},
         {name: 'Audi', year: 2015, color: 'black'},
-        // {name: 'Mazda', year: 2019, color: 'green'}
+        {name: 'Mazda', year: 2019, color: 'green'}
       ],
       pageTitle: 'Car list',
       showCars: false 
@@ -57,14 +58,15 @@ class App extends React.Component {
     if (this.state.showCars) {
       cars = this.state.cars.map((car, index) => {
         return (
-          <Car 
-            key={index}
-            name={car.name} 
-            year={car.year} 
-            color={car.color}
-            onDelete={this.deleteHandler.bind(this, index)}
-            onChangeName={event => this.onChangeName(event.target.value, index)}
-          />
+          <ErrorBoundary key={index}>
+            <Car 
+              name={car.name} 
+              year={car.year} 
+              color={car.color}
+              onDelete={this.deleteHandler.bind(this, index)}
+              onChangeName={event => this.onChangeName(event.target.value, index)}
+            />
+          </ErrorBoundary>
         )
       })
     }
