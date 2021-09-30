@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
 import withClass from '../hoc/withClass'
+import PropTypes from 'prop-types'
 import './Car.scss'
 
 class Car extends React.Component {
@@ -35,4 +36,10 @@ class Car extends React.Component {
     }
 }
 
+Car.propTypes = {
+    name: PropTypes.string,
+    year: PropTypes.number.isRequired,
+    onChangeName: PropTypes.func,
+    onDelete: PropTypes.func
+}
 export default withClass(Car, 'Car')
