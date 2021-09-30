@@ -13,8 +13,18 @@ class Car extends React.Component {
         return nextProps.name.trim() !== this.props.name.trim()
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        console.log(`Car componentWillUpdate: `, nextProps, nextState)
+    // componentWillUpdate(nextProps, nextState) {                         //устарел и опасен
+    //     console.log(`Car componentWillUpdate: `, nextProps, nextState)
+    // }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(`Car getDerivedStateFromProps: `, nextProps, prevState)
+
+        return prevState
+    }
+
+    getSnapshotBeforeUpdate() {
+        console.log(`Car getSnapshotBeforeUpdate`)
     }
 
     componentDidUpdate() {
