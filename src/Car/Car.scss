@@ -4,6 +4,15 @@
     padding: 10px;
     border-radius: 5px;
     transition: all .2s;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .2);
+    border: 1px solid #ccc;
+}
+
+.Car:hover {
+    border: 2px solid #aaa;
+    box-shadow: 0 4px 15 px rgba(0, 0, 0, .25);
+    background-color:yellow;
+    cursor: pointer;
 }
 
 .input {}

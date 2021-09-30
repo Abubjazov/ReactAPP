@@ -1,46 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
-// import Radium from 'radium'
+import withClass from '../hoc/withClass'
 import './Car.scss'
 
 class Car extends React.Component {
-    componentWillReciveProps(nextProps) {
-        console.log(`Car componentWillRecieveProps: `, nextProps)
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log(`Car shouldComponentUpdate: `, nextProps, nextState)
-        return nextProps.name.trim() !== this.props.name.trim()
-    }
-
-    // componentWillUpdate(nextProps, nextState) {                         //устарел и опасен
-    //     console.log(`Car componentWillUpdate: `, nextProps, nextState)
-    // }
-
-    // static getDerivedStateFromProps(nextProps, prevState) {
-    //     console.log(`Car getDerivedStateFromProps: `, nextProps, prevState)
-
-    //     return prevState
-    // }
-
-    // getSnapshotBeforeUpdate() {
-    //     console.log(`Car getSnapshotBeforeUpdate`)
-    // }
-
-    componentDidUpdate() {
-        console.log(`Car componentDidUpdate`)
-    }
-
-    componentWillUnmount() {
-        console.log(`Car componentWillUnmount`)
-    }
 
     render() {
-        console.log(`Car Render`)
-
-        // if (Math.random() > 0.7) {
-        //     throw new Error('Car random fail')
-        // }
         const inputClasses = ['input']
 
         if (this.props.name) {
@@ -53,19 +18,8 @@ class Car extends React.Component {
             inputClasses.push('bold')
         }
 
-        const style = {
-            boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .2)',
-            border: '1px solid #ccc',
-            ':hover': {
-                border: '2px solid #aaa',
-                boxShadow: '0 4px 15 px rgba(0, 0, 0, .25)',
-                backgroundColor:'yellow',
-                cursor: 'pointer'
-            }
-        }
-
         return (
-        <div className='Car' style={style}>
+        <React.Fragment>
             <h2>Car name: {this.props.name}</h2>
             <p>Color: {this.props.color}</p>
             <p>Year: {this.props.year}</p>
@@ -76,9 +30,9 @@ class Car extends React.Component {
             className={inputClasses.join(' ')}
             />
             <button onClick={this.props.onDelete}>Delete</button>
-        </div>
+        </React.Fragment>
         )
     }
 }
 
-export default Car
+export default withClass(Car, 'Car')

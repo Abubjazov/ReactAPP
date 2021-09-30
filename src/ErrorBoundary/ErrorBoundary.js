@@ -3,7 +3,7 @@ import React from "react";
 export default class ErrorBoundary extends React.Component {
 
     state = {
-        hasError: false,
+        hasError: false
     }
 
     componentDidCatch(error, info) {
