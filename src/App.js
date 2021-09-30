@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       cars: [
         {name: 'Kia', year: 2020, color: 'red'},
-        // {name: 'Audi', year: 2015, color: 'black'},
+        {name: 'Audi', year: 2015, color: 'black'},
         // {name: 'Mazda', year: 2019, color: 'green'}
       ],
       pageTitle: 'Car list',
