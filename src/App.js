@@ -5,12 +5,15 @@ import Car from './Car/Car'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 import Counter from './Counter/Counter'
 
+export const ClickedContext = React.createContext(false)
+
 class App extends React.Component {
 
   constructor(props) {
     super(props)
 
     this.state = {
+      clicked: false,
       cars: [
         {name: 'Kia', year: 2020, color: 'red'},
         {name: 'Audi', year: 2015, color: 'blue'},
@@ -68,12 +71,19 @@ class App extends React.Component {
 
       <div className='App'>
         {/* <h1>{this.state.pageTitle}</h1> */}
-        <Counter />
+
+        <ClickedContext.Provider value={this.state.clicked}>
+          <Counter />
+        </ClickedContext.Provider>
+
         <h1>{this.props.title}</h1>
   
         <button 
           onClick={this.toggleCarsHandler}
           >Toggle Cars</button>
+
+        <button onClick={() => this.setState({clicked: true})}
+        >CHANGE CLICKED</button>
 
         {/* <input type="text" onChange={this.inputHandler} /> */}
         <div style={{
