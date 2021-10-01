@@ -1,3 +1,13 @@
 .Header {
     margin-left: 10px;
 }
+
+a.active {
+    font-weight: bold;
+    color: red;
+}
+
+a.wfm-active {
+    font-weight: bold;
+    color: green;
+}
