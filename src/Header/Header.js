@@ -14,9 +14,7 @@ export default props => {
             <NavLink to="/about" className="Header" activeStyle={{color: 'blue'}}>About</NavLink>
             <NavLink 
             to={{
-                pathname: '/cars',
-                search: '?a=1&b=2',
-                hash: 'wfm-hash'
+                pathname: '/cars'
             }} 
             className="Header"
             >Cars</NavLink>                     
