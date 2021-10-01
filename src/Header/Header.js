@@ -6,7 +6,8 @@ export default props => {
     return (
         <div>
             <a href="/" className="Header">Home</a>
-            <a href="/about" className="Header">About</a>                     
+            <a href="/about" className="Header">About</a>
+            <a href="/cars" className="Header">Cars</a>                     
         </div>
     )
 }

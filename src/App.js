@@ -78,9 +78,9 @@ class App extends React.Component {
         <Header />
         <hr />
 
-        <Route path="/" exact render={() => <h1>Home Page</h1>}/>
-        <About />
-        <Cars />
+        <Route path="/" exact render={() => <h1>Home Page</h1>} />
+        <Route path="/about" component={About} />
+        <Route path="/cars" component={Cars} />
 
         <ClickedContext.Provider value={this.state.clicked}>
           <Counter />
