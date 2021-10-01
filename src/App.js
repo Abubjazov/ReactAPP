@@ -18,6 +18,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      isLoggedIn: false,
       clicked: false,
       cars: [
         {name: 'Kia', year: 2020, color: 'red'},
@@ -78,9 +79,12 @@ class App extends React.Component {
         {/* <h1>{this.state.pageTitle}</h1> */}
         <Header />
         <hr />
+        <h3>Is LoggedIn: {this.state.isLoggedIn ? 'TRUE' : 'FALSE'}</h3>
+        <button onClick={() => this.setState({isLoggedIn: !this.state.isLoggedIn})}>Log In</button>
+        <hr />
         <Switch>
           <Route path="/" exact render={() => <h1>Home Page</h1>} />
-          <Route path="/about" component={About} />
+          { this.state.isLoggedIn ? <Route path="/about" component={About} /> : null}          
           <Route path="/cars/:name" component={CarDetail} />
           <Route path="/cars" component={Cars} />
           <Redirect to={'/'}/>
