@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
 import './App.scss'
 import Car from './Car/Car'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
@@ -82,7 +82,9 @@ class App extends React.Component {
           <Route path="/" exact render={() => <h1>Home Page</h1>} />
           <Route path="/about" component={About} />
           <Route path="/cars/:name" component={CarDetail} />
-          <Route path="/cars" component={Cars} />          
+          <Route path="/cars" component={Cars} />
+          <Redirect to={'/'}/>
+          {/* <Route render={() => <h1 style={{color: 'red', textAlign: 'center'}}>404 not found</h1>} />          */}
         </Switch>
 
         <ClickedContext.Provider value={this.state.clicked}>
