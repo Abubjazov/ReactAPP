@@ -1,9 +1,13 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react'
+import {Route} from 'react-router-dom'
 import './App.scss'
 import Car from './Car/Car'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 import Counter from './Counter/Counter'
+import Header from './Header/Header'
+import About from './About/About'
+import Cars from './Cars/Cars'
 
 export const ClickedContext = React.createContext(false)
 
@@ -71,6 +75,12 @@ class App extends React.Component {
 
       <div className='App'>
         {/* <h1>{this.state.pageTitle}</h1> */}
+        <Header />
+        <hr />
+
+        <Route path="/" exact render={() => <h1>Home Page</h1>}/>
+        <About />
+        <Cars />
 
         <ClickedContext.Provider value={this.state.clicked}>
           <Counter />

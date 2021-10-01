@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(
+const application = (
   <React.StrictMode>
-    <App title={'I am from props'} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
+
+ReactDOM.render(application, document.getElementById('root'));
 
 reportWebVitals();
