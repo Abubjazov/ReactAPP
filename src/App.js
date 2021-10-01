@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import './App.scss'
 import Car from './Car/Car'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
@@ -8,6 +8,7 @@ import Counter from './Counter/Counter'
 import Header from './Header/Header'
 import About from './About/About'
 import Cars from './Cars/Cars'
+import CarDetail from './CarDetail/CarDetail'
 
 export const ClickedContext = React.createContext(false)
 
@@ -77,10 +78,12 @@ class App extends React.Component {
         {/* <h1>{this.state.pageTitle}</h1> */}
         <Header />
         <hr />
-
-        <Route path="/" exact render={() => <h1>Home Page</h1>} />
-        <Route path="/about" component={About} />
-        <Route path="/cars" component={Cars} />
+        <Switch>
+          <Route path="/" exact render={() => <h1>Home Page</h1>} />
+          <Route path="/about" component={About} />
+          <Route path="/cars/:name" component={CarDetail} />
+          <Route path="/cars" component={Cars} />          
+        </Switch>
 
         <ClickedContext.Provider value={this.state.clicked}>
           <Counter />
